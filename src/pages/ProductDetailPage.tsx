@@ -34,8 +34,8 @@ export function ProductDetailPage() {
 
   const margin = product.price > 0 ? ((product.price - product.cost) / product.price) * 100 : 0;
 
-  const handleAdjust = (type: "add" | "subtract") => {
-    const result = adjustStock({ productId: product.id, type, quantity: qty, reason: type === "subtract" ? "Sold" : "Stock added" });
+  const handleAdjust = async (type: "add" | "subtract") => {
+    const result = await adjustStock({ productId: product.id, type, quantity: qty, reason: type === "subtract" ? "Sold" : "Stock added" });
     if (result.ok) showToast("success", type === "subtract" ? `Sold ${qty}` : `Added ${qty}`);
     else showToast("error", "Failed", result.message);
   };

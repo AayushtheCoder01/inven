@@ -10,8 +10,8 @@ export function ProductCard({ product }: { product: Product }) {
   const { adjustStock, showToast } = useInventory();
   const [qty, setQty] = useState(1);
 
-  const handleAdjust = (type: "add" | "subtract") => {
-    const result = adjustStock({
+  const handleAdjust = async (type: "add" | "subtract") => {
+    const result = await adjustStock({
       productId: product.id,
       type,
       quantity: qty,

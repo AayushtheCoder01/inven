@@ -49,9 +49,9 @@ export function AdjustmentsPage() {
       : selected.currentQty - quantity
     : 0;
 
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const result = adjustStock({ productId: selectedProductId, type, quantity, reason });
+    const result = await adjustStock({ productId: selectedProductId, type, quantity, reason });
 
     if (result.ok) {
       showToast("success", "Stock Updated", result.message);

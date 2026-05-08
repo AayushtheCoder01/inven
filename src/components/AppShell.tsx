@@ -1,9 +1,19 @@
-import { Clock, Menu, Package, Settings, Wallet, X, Zap } from "lucide-react";
+import {
+  LayoutDashboard,
+  Clock,
+  Menu,
+  Package,
+  Settings,
+  Wallet,
+  X,
+  Zap,
+} from "lucide-react";
 import { useState } from "react";
 import { NavLink, Outlet } from "react-router-dom";
 import { ToastContainer } from "./Toast";
 
 const nav = [
+  { to: "/dashboard", label: "Dashboard", icon: LayoutDashboard },
   { to: "/inventory", label: "Inventory", icon: Package },
   { to: "/activity", label: "Activity", icon: Clock },
   { to: "/finance", label: "Finance", icon: Wallet },
@@ -35,9 +45,14 @@ export function AppShell() {
             <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-600 shadow-glow">
               <Zap size={16} className="text-white" />
             </div>
-            <span className="font-display text-lg font-bold text-slate-100">StockPulse</span>
+            <span className="font-display text-lg font-bold text-slate-100">
+              StockPulse
+            </span>
           </div>
-          <button className="lg:hidden text-slate-400 hover:text-white" onClick={() => setOpen(false)}>
+          <button
+            className="lg:hidden text-slate-400 hover:text-white"
+            onClick={() => setOpen(false)}
+          >
             <X size={18} />
           </button>
         </div>
